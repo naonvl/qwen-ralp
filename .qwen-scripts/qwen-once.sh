@@ -40,10 +40,11 @@ $context
 Work on the next incomplete criterion. Show me what you would do.
 PROMPT_EOF
 
-# Run Qwen with positional prompt (read from file)
+# Run Qwen with positional prompt
 if command -v qwen &> /dev/null; then
-    # Use file content as prompt directly with YOLO mode for auto-approval
-    cat "$prompt_file" | qwen -i "" -y 2>&1 | tee -a "$QWEN_STATE/activity.log"
+    # Read prompt file and pass to qwen
+    prompt_content=$(cat "$prompt_file")
+    qwen "$prompt_content" -y 2>&1 | tee -a "$QWEN_STATE/activity.log"
 else
     echo "⚠️  qwen CLI not found. Install with: npm install -g @qwen-code/qwen-code"
 fi

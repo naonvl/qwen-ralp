@@ -317,9 +317,10 @@ main() {
         echo "If all criteria are complete, output: COMPLETE" >> "$prompt_file"
         echo "If you're stuck on the same issue 3+ times, output: GUTTER" >> "$prompt_file"
         
-        # Run Qwen with interactive prompt mode and YOLO for auto-approval
+        # Run Qwen with positional prompt and YOLO for auto-approval
         if command -v qwen &> /dev/null; then
-            cat "$prompt_file" | qwen -i "" -y 2>&1 | tee -a "$QWEN_STATE/activity.log" || true
+            prompt_content=$(cat "$prompt_file")
+            qwen "$prompt_content" -y 2>&1 | tee -a "$QWEN_STATE/activity.log" || true
         else
             log_warn "qwen CLI not available. Simulating..."
             echo "[SIMULATED QWEN OUTPUT]" | tee -a "$QWEN_STATE/activity.log"
@@ -393,10 +394,10 @@ echo "" >> "$prompt_file"
 echo "=== INSTRUCTION ===" >> "$prompt_file"
 echo "Work on the next incomplete criterion. Show me what you would do." >> "$prompt_file"
 
-# Run Qwen with positional prompt (read from file)
+# Run Qwen with positional prompt
 if command -v qwen &> /dev/null; then
-    # Use file content as prompt directly with YOLO mode for auto-approval
-    cat "$prompt_file" | qwen -i "" -y 2>&1 | tee -a "$QWEN_STATE/activity.log"
+    prompt_content=$(cat "$prompt_file")
+    qwen "$prompt_content" -y 2>&1 | tee -a "$QWEN_STATE/activity.log"
 else
     echo "⚠️  qwen CLI not found. Install with: npm install -g @qwen-code/qwen-code"
 fi
