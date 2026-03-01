@@ -18,7 +18,7 @@ npm install -g @qwen-code/qwen-code@latest
 
 ```bash
 cd your-project
-curl -fsSL https://raw.githubusercontent.com/your-org/qwen-ralph-loop/main/install-qwen-ralph.sh | bash
+curl -fsSL https://raw.githubusercontent.com/naonvl/qwen-ralp/main/install-qwen-ralph.sh | bash
 ```
 
 Or copy the files from this repo manually.
@@ -203,6 +203,7 @@ All 6 success criteria were completed in a single iteration!
 
 - [Ralph Wiggum Original Concept](https://ghuntley.com/ralph/)
 - [Qwen Code Documentation](https://qwenlm.github.io/qwen-code-docs/)
+- [Qwen Ralph Loop on GitHub](https://github.com/naonvl/qwen-ralp)
 
 ---
 
