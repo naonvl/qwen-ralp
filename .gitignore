@@ -1,8 +1,14 @@
 # Qwen Ralph state (optional - commit for persistence)
 # .qwen/
 
-# Node modules
+# Dependencies
 node_modules/
 
-# Logs
+# Build outputs
+dist/
+build/
 *.log
+
+# Environment
+.env
+.env.local

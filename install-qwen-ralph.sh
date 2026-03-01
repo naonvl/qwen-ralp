@@ -614,42 +614,24 @@ if [[ ! -f "QWEN_TASK.md" ]]; then
     echo "📝 Creating QWEN_TASK.md template..."
     cat > QWEN_TASK.md <<'TASK_EOF'
 ---
-task: Build a CLI todo app in TypeScript
-test_command: "npx ts-node todo.ts list"
+task: Masukkan nama aplikasinya
+test_command: ""
 ---
 
-# Task: CLI Todo App (TypeScript)
+# Task: Masukkan nama aplikasinya
 
-Build a simple command-line todo application in TypeScript.
-
-## Requirements
-1. Single file: `todo.ts`
-2. Uses `todos.json` for persistence
-3. Three commands: add, list, done
-4. TypeScript with proper types
+Deskripsi aplikasi dan tech stack yang digunakan.
 
 ## Success Criteria
-1. [ ] `npx ts-node todo.ts add "Buy milk"` adds a todo and confirms
-2. [ ] `npx ts-node todo.ts list` shows all todos with IDs and status
-3. [ ] `npx ts-node todo.ts done 1` marks todo 1 as complete
-4. [ ] Todos survive script restart (JSON persistence)
-5. [ ] Invalid commands show helpful usage message
-6. [ ] Code has proper TypeScript types (no `any`)
 
-## Example Output
-```
-$ npx ts-node todo.ts add "Buy milk"
-✓ Added: "Buy milk" (id: 1)
-
-$ npx ts-node todo.ts list
-1. [ ] Buy milk
-
-$ npx ts-node todo.ts done 1
-✓ Completed: "Buy milk"
-```
+1. [ ] Criterion 1
+2. [ ] Criterion 2
+3. [ ] Criterion 3
 
 ---
+
 ## Qwen Instructions
+
 1. Work on the next incomplete criterion (marked [ ])
 2. Check off completed criteria (change [ ] to [x])
 3. Run tests after changes
@@ -657,7 +639,7 @@ $ npx ts-node todo.ts done 1
 5. When ALL criteria are [x], output: `COMPLETE`
 6. If stuck on the same issue 3+ times, output: `GUTTER`
 TASK_EOF
-    echo "✓ Created QWEN_TASK.md with example task"
+    echo "✓ Created QWEN_TASK.md template"
 else
     echo "✓ QWEN_TASK.md already exists (not overwritten)"
 fi
