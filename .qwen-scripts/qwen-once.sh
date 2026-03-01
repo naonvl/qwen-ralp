@@ -33,14 +33,17 @@ echo ""
 
 # Create temp prompt
 prompt_file=$(mktemp)
-echo -e "$context" > "$prompt_file"
-echo "" >> "$prompt_file"
-echo "=== INSTRUCTION ===" >> "$prompt_file"
-echo "Work on the next incomplete criterion. Show me what you would do." >> "$prompt_file"
+cat > "$prompt_file" << PROMPT_EOF
+$context
 
-# Run Qwen
+=== INSTRUCTION ===
+Work on the next incomplete criterion. Show me what you would do.
+PROMPT_EOF
+
+# Run Qwen with positional prompt (read from file)
 if command -v qwen &> /dev/null; then
-    qwen --headless < "$prompt_file" 2>&1 | tee -a "$QWEN_STATE/activity.log"
+    # Use file content as prompt directly with YOLO mode for auto-approval
+    cat "$prompt_file" | qwen -i "" -y 2>&1 | tee -a "$QWEN_STATE/activity.log"
 else
     echo "⚠️  qwen CLI not found. Install with: npm install -g @qwen-code/qwen-code"
 fi

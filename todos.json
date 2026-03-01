@@ -2,9 +2,14 @@
   "todos": [
     {
       "id": 1,
-      "text": "Buy milk",
+      "text": "Test item",
       "completed": true
+    },
+    {
+      "id": 2,
+      "text": "Beli susu",
+      "completed": false
     }
   ],
-  "nextId": 2
+  "nextId": 3
 }

@@ -255,10 +255,9 @@ main() {
         echo "If all criteria are complete, output: COMPLETE" >> "$prompt_file"
         echo "If you're stuck on the same issue 3+ times, output: GUTTER" >> "$prompt_file"
         
-        # Run Qwen (headless mode with file input)
-        # Note: Adjust based on actual qwen CLI options
+        # Run Qwen with interactive prompt mode and YOLO for auto-approval
         if command -v qwen &> /dev/null; then
-            qwen --headless < "$prompt_file" 2>&1 | tee -a "$QWEN_STATE/activity.log" || true
+            cat "$prompt_file" | qwen -i "" -y 2>&1 | tee -a "$QWEN_STATE/activity.log" || true
         else
             log_warn "qwen CLI not available. Simulating..."
             echo "[SIMULATED QWEN OUTPUT]" | tee -a "$QWEN_STATE/activity.log"
