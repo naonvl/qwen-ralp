@@ -14,12 +14,12 @@ Build a simple command-line todo application in TypeScript.
 4. TypeScript with proper types
 
 ## Success Criteria
-1. [ ] `npx ts-node todo.ts add "Buy milk"` adds a todo and confirms
-2. [ ] `npx ts-node todo.ts list` shows all todos with IDs and status
-3. [ ] `npx ts-node todo.ts done 1` marks todo 1 as complete
-4. [ ] Todos survive script restart (JSON persistence)
-5. [ ] Invalid commands show helpful usage message
-6. [ ] Code has proper TypeScript types (no `any`)
+1. [x] `npx ts-node todo.ts add "Buy milk"` adds a todo and confirms
+2. [x] `npx ts-node todo.ts list` shows all todos with IDs and status
+3. [x] `npx ts-node todo.ts done 1` marks todo 1 as complete
+4. [x] Todos survive script restart (JSON persistence)
+5. [x] Invalid commands show helpful usage message
+6. [x] Code has proper TypeScript types (no `any`)
 
 ## Example Output
 ```
